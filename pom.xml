@@ -8,13 +8,15 @@
     <artifactId>thx-ios-demo</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
+
     <name>thx-ios-demo</name>
+    <description>demo project of thx-ios</description>
 
     <dependencies>
         <dependency>
             <groupId>com.tascape.qa</groupId>
             <artifactId>thx-ios-uiat</artifactId>
-            <version>1.0.5</version>
+            <version>1.0.6</version>
             <type>jar</type>
         </dependency>
     </dependencies>
@@ -27,7 +29,6 @@
         <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
     </properties>
 
-    <description>demo project of thx-ios</description>
     <developers>
         <developer>
             <name>Linsong Wang</name>
