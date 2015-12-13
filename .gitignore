@@ -14,3 +14,5 @@ hs_err_pid*
 nb*.xml
 target/
 logs/
+instrumentscli*/
+i
