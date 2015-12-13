@@ -62,4 +62,9 @@ public class Movies extends App {
     public void reset() throws Exception {
         LOG.debug("na");
     }
+
+    @Override
+    public int getLaunchDelayMillis() {
+        return 5000;
+    }
 }

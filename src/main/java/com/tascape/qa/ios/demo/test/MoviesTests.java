@@ -40,6 +40,7 @@ public class MoviesTests extends AbstractTest {
 
     @Before
     public void setup() throws Exception {
+        app.launch();
         app.backToStart();
         device.takeDeviceScreenshot();
     }
