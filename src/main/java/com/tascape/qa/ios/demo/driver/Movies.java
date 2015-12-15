@@ -19,6 +19,7 @@ import com.tascape.qa.th.exception.EntityDriverException;
 import com.tascape.qa.th.ios.driver.App;
 import com.tascape.qa.th.ios.model.UIAButton;
 import com.tascape.qa.th.ios.model.UIAException;
+import com.tascape.qa.th.ios.model.UIAWindow;
 import java.util.Random;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -55,7 +56,9 @@ public class Movies extends App {
         uiaDevice.runJavaScript(e + ".scrollToVisible();");
         uiaDevice.takeDeviceScreenshot();
         uiaDevice.runJavaScript(e + ".tap();");
-        uiaDevice.mainWindow().logElement().forEach(l -> LOG.debug(l));
+        UIAWindow window = uiaDevice.mainWindow();
+        LOG.info("title {}", window.elements()[1].name());
+        window.logElement().forEach(l -> LOG.debug(l));
     }
 
     @Override

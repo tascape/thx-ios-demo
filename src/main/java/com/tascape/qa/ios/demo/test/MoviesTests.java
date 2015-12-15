@@ -54,6 +54,7 @@ public class MoviesTests extends AbstractTest {
     @TestDataProvider(klass = TestIterationData.class, method = "useIterations", parameter = "15")
     public void testRandomMovie() throws Exception {
         app.showDetail();
+        device.dragHalfScreenDown();
         device.dragFromToForDuration(new Point2D.Float(100, 400), new Point2D.Float(100, 0), 3);
         Assert.assertTrue("cannot find bookmark button",
             device.doesElementExist("window.tableViews()[0].cells()[0].buttons()[0]", UIAButton.class, "Bookmark"));

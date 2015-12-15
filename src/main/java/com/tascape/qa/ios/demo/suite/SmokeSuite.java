@@ -20,13 +20,14 @@ import org.slf4j.LoggerFactory;
 import com.tascape.qa.ios.demo.driver.Movies;
 import com.tascape.qa.ios.demo.test.MoviesTests;
 import com.tascape.qa.th.ios.driver.UiAutomationDevice;
-import com.tascape.qa.th.ios.suite.AbstractIosSuite;
+import com.tascape.qa.th.ios.suite.UiAutomationTestSuite;
+import com.tascape.qa.th.suite.AbstractSuite;
 
 /**
  *
  * @author linsong wang
  */
-public class SmokeSuite extends AbstractIosSuite {
+public class SmokeSuite extends AbstractSuite implements UiAutomationTestSuite {
     private static final Logger LOG = LoggerFactory.getLogger(SmokeSuite.class);
 
     private final Movies app = new Movies();
@@ -66,5 +67,9 @@ public class SmokeSuite extends AbstractIosSuite {
     @Override
     public String getProjectName() {
         return "thx-ios-demo";
+    }
+
+    public int getNumberOfEnvs() {
+        return UUIDS.size();
     }
 }
