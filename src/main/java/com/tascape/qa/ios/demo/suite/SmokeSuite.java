@@ -42,11 +42,7 @@ public class SmokeSuite extends AbstractSuite implements UiAutomationTestSuite {
     @Override
     protected void setUpEnvironment() throws Exception {
         device = this.getAvailableDevice();
-
         app.attachTo(device);
-        app.launch();
-        device.takeDeviceScreenshot();
-        app.backToStart();
 
         this.putTestDirver(MoviesTests.MOBILE_DEVICE, device);
         this.putTestDirver(MoviesTests.MOVIES_APP, app);
