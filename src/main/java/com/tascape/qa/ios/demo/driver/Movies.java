@@ -35,6 +35,7 @@ public class Movies extends App {
 
     public static final String NAME = "Movies";
 
+    @Override
     public String getBundleId() {
         return BUNDLE_ID;
     }
