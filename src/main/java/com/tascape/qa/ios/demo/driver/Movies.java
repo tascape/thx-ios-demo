@@ -18,7 +18,10 @@ package com.tascape.qa.ios.demo.driver;
 import com.tascape.qa.th.exception.EntityDriverException;
 import com.tascape.qa.th.ios.driver.App;
 import com.tascape.qa.th.ios.model.UIAButton;
+import com.tascape.qa.th.ios.model.UIAElement;
 import com.tascape.qa.th.ios.model.UIAException;
+import com.tascape.qa.th.ios.model.UIANavigationBar;
+import com.tascape.qa.th.ios.model.UIATableCell;
 import com.tascape.qa.th.ios.model.UIAWindow;
 import java.util.Random;
 import org.slf4j.Logger;
@@ -60,6 +63,16 @@ public class Movies extends App {
         UIAWindow window = uiaDevice.mainWindow();
         LOG.info("title {}", window.elements()[1].name());
         window.logElement().forEach(l -> LOG.debug(l));
+    }
+
+    public void showASimilarMovie() throws UIAException {
+        UIATableCell cell = uiaDevice.mainWindow().findElement(UIATableCell.class, "View all similar movies");
+        UIAElement image = cell.elements()[1 + new Random().nextInt(4)];
+        image.tapOn();
+    }
+
+    public boolean isHomeScreen() throws UIAException {
+        return uiaDevice.mainWindow().findElement(UIANavigationBar.class, "Discover") != null;
     }
 
     @Override

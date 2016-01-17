@@ -87,6 +87,17 @@ public class MoviesTests extends AbstractTest implements UiAutomationTest {
             device.doesElementExist("window.tableViews()[0].cells()[0].buttons()[0]", UIAButton.class, "Bookmark"));
     }
 
+    @Test
+    public void testRelaunchFromDefault0() throws Exception {
+        app.showDetail();
+        for (int i = 0; i < 8; i++) {
+            app.showASimilarMovie();
+            device.takeDeviceScreenshot();
+        }
+        app.launch();
+        Assert.assertTrue("this is not the default screen", app.isHomeScreen());
+    }
+
     /**
      * This is a manual test case. You need to run it in desktop interactive session.
      *
