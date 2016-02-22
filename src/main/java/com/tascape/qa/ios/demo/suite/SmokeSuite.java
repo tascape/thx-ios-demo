@@ -42,7 +42,7 @@ public class SmokeSuite extends AbstractSuite implements UiAutomationTestSuite {
     @Override
     protected void setUpEnvironment() throws Exception {
         device = this.getAvailableDevice();
-        app.attachTo(device);
+        device.install(app);
 
         this.putTestDirver(MoviesTests.MOBILE_DEVICE, device);
         this.putTestDirver(MoviesTests.MOVIES_APP, app);
@@ -65,6 +65,7 @@ public class SmokeSuite extends AbstractSuite implements UiAutomationTestSuite {
         return "thx-ios-demo";
     }
 
+    @Override
     public int getNumberOfEnvs() {
         return UUIDS.size();
     }

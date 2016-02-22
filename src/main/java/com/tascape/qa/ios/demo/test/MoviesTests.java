@@ -106,7 +106,7 @@ public class MoviesTests extends AbstractTest implements UiAutomationTest {
     @Test
     public void testManualUiDebug() throws Exception {
         app.showDetail();
-        this.testManually(device, 2);
+        this.testManually(device, 15);
     }
 
     @Override

@@ -49,30 +49,30 @@ public class Movies extends App {
     }
 
     public void backToStart() throws UIAException {
-        if (uiaDevice.doesElementExist("window.buttons()['back icon']", UIAButton.class)) {
-            uiaDevice.runJavaScript("window.buttons()['back icon'].tap()");
+        if (device.doesElementExist("window.buttons()['back icon']", UIAButton.class)) {
+            device.runJavaScript("window.buttons()['back icon'].tap()");
         }
     }
 
     public void showDetail() throws UIAException, EntityDriverException {
         int index = new Random().nextInt(8);
         String e = "window.tableViews()[0].cells()[" + index + "]";
-        uiaDevice.runJavaScript(e + ".scrollToVisible();");
-        uiaDevice.takeDeviceScreenshot();
-        uiaDevice.runJavaScript(e + ".tap();");
-        UIAWindow window = uiaDevice.mainWindow();
+        device.runJavaScript(e + ".scrollToVisible();");
+        device.takeDeviceScreenshot();
+        device.runJavaScript(e + ".tap();");
+        UIAWindow window = device.mainWindow();
         LOG.info("title {}", window.elements()[1].name());
         window.logElement().forEach(l -> LOG.debug(l));
     }
 
     public void showASimilarMovie() throws UIAException {
-        UIATableCell cell = uiaDevice.mainWindow().findElement(UIATableCell.class, "View all similar movies");
+        UIATableCell cell = device.mainWindow().findElement(UIATableCell.class, "View all similar movies");
         UIAElement image = cell.elements()[1 + new Random().nextInt(4)];
         image.tapOn();
     }
 
     public boolean isHomeScreen() throws UIAException {
-        return uiaDevice.mainWindow().findElement(UIANavigationBar.class, "Discover") != null;
+        return device.mainWindow().findElement(UIANavigationBar.class, "Discover") != null;
     }
 
     @Override
