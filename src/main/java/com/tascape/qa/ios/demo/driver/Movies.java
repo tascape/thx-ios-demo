@@ -84,4 +84,9 @@ public class Movies extends App {
     public int getLaunchDelayMillis() {
         return 5000;
     }
+
+    @Override
+    public int getLaunchRetries() {
+        return 2;
+    }
 }
